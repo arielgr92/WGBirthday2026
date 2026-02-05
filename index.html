@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños Mamá! 💐</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+        
+        :root {
+            --cream: #FDF8F3;
+            --warm-pink: #E8B4B8;
+            --deep-rose: #C17B7E;
+            --dusty-mauve: #A67F8E;
+            --soft-gold: #D4AF37;
+            --antique-gold: #C9A227;
+            --sage: #9CAF88;
+            --deep-green: #5C6B54;
+            --charcoal: #2C2C2C;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Crimson Pro', serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            overflow-x: hidden;
+        }
+        
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .font-elegant {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        /* Floating flowers animation */
+        .flower {
+            position: fixed;
+            font-size: 1.5rem;
+            opacity: 0;
+            animation: floatDown 12s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 100;
+        }
+        
+        @keyframes floatDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-100px) rotate(0deg);
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+        
+        /* Hero section */
+        .hero-gradient {
+            background: linear-gradient(
+                135deg,
+                #FDF8F3 0%,
+                #F8E8E0 25%,
+                #F5DED5 50%,
+                #E8D4CC 75%,
+                #F0E6DF 100%
+            );
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, var(--deep-rose), var(--dusty-mauve), var(--soft-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Decorative elements */
+        .ornament {
+            display: inline-block;
+            color: var(--soft-gold);
+            font-size: 2rem;
+            margin: 0 1rem;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+        
+        /* Photo frames */
+        .photo-frame {
+            position: relative;
+            background: linear-gradient(145deg, #fff, #f5f0eb);
+            padding: 1rem;
+            box-shadow: 
+                0 10px 40px rgba(0,0,0,0.08),
+                0 2px 10px rgba(0,0,0,0.04),
+                inset 0 1px 0 rgba(255,255,255,0.8);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .photo-frame::before {
+            content: '';
+            position: absolute;
+            inset: 0.5rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            pointer-events: none;
+        }
+        
+        .photo-placeholder {
+            background: linear-gradient(135deg, #E8D4CC, #D4C4BC);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dusty-mauve);
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .photo-placeholder::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3) 0%, transparent 50%),
+                radial-gradient(circle at 70% 70%, rgba(0,0,0,0.05) 0%, transparent 50%);
+        }
+        
+        /* Message cards */
+        .message-card {
+            background: white;
+            border-radius: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .message-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--warm-pink), var(--soft-gold), var(--sage));
+        }
+        
+        /* Reveal button */
+        .gift-button {
+            position: relative;
+            background: linear-gradient(135deg, var(--soft-gold), var(--antique-gold));
+            color: white;
+            padding: 1.25rem 3rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            letter-spacing: 0.1em;
+            border: none;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 
+                0 4px 20px rgba(212, 175, 55, 0.4),
+                0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .gift-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .gift-button:hover::before {
+            left: 100%;
+        }
+        
+        .gift-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                0 8px 30px rgba(212, 175, 55, 0.5),
+                0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        /* Boarding Pass */
+        .boarding-pass {
+            background: white;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            box-shadow: 
+                0 25px 60px rgba(0,0,0,0.15),
+                0 10px 30px rgba(0,0,0,0.1);
+            animation: slideUp 0.8s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .boarding-pass-header {
+            background: linear-gradient(135deg, #1a365d, #2c5282, #1a365d);
+            color: white;
+            padding: 1.5rem 2rem;
+            position: relative;
+        }
+        
+        .boarding-pass-header::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: 
+                radial-gradient(circle, transparent 10px, white 10px) repeat-x;
+            background-size: 20px 20px;
+            background-position: 0 -10px;
+        }
+        
+        .boarding-pass-body {
+            padding: 2rem;
+            background: white;
+            position: relative;
+        }
+        
+        .boarding-pass-body::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 20px;
+            height: 40px;
+            background: var(--cream);
+            border-radius: 0 20px 20px 0;
+            transform: translateY(-50%);
+        }
+        
+        .boarding-pass-body::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            width: 20px;
+            height: 40px;
+            background: var(--cream);
+            border-radius: 20px 0 0 20px;
+            transform: translateY(-50%);
+        }
+        
+        .dashed-line {
+            border-top: 2px dashed #cbd5e0;
+            margin: 1.5rem 0;
+        }
+        
+        .barcode {
+            display: flex;
+            justify-content: center;
+            gap: 2px;
+            padding: 1rem 0;
+        }
+        
+        .barcode span {
+            display: block;
+            width: 3px;
+            background: #1a365d;
+            border-radius: 1px;
+        }
+        
+        /* Confetti animation */
+        .confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            overflow: hidden;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            opacity: 0;
+        }
+        
+        @keyframes confettiFall {
+            0% {
+                opacity: 1;
+                transform: translateY(-100%) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(720deg);
+            }
+        }
+        
+        /* Section transitions */
+        .fade-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .fade-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Gift section */
+        .gift-section {
+            background: linear-gradient(180deg, 
+                var(--cream) 0%, 
+                #F0E6DF 30%,
+                #E8D8D0 60%,
+                #F5EBE6 100%
+            );
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gift-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to bottom, var(--cream), transparent);
+        }
+        
+        /* Hidden gift container */
+        .gift-container {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .gift-container.revealed {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Decorative divider */
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 2rem 0;
+        }
+        
+        .divider-line {
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--soft-gold), transparent);
+        }
+        
+        .divider-icon {
+            color: var(--soft-gold);
+            font-size: 1.5rem;
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--cream);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--warm-pink);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--deep-rose);
+        }
+        
+        /* Quote marks */
+        .quote-mark {
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
+            line-height: 1;
+            color: var(--warm-pink);
+            opacity: 0.3;
+        }
+        
+        /* Timeline */
+        .timeline-dot {
+            width: 16px;
+            height: 16px;
+            background: var(--soft-gold);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-line {
+            width: 2px;
+            background: linear-gradient(to bottom, var(--soft-gold), var(--warm-pink));
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating flowers -->
+    <div id="flowers-container"></div>
+    
+    <!-- Confetti container -->
+    <div class="confetti-container" id="confetti-container"></div>
+    
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-screen flex flex-col items-center justify-center relative px-6 py-20">
+        <!-- Decorative corner elements -->
+        <div class="absolute top-8 left-8 text-5xl text-warm-pink opacity-20">❀</div>
+        <div class="absolute top-8 right-8 text-5xl text-warm-pink opacity-20">❀</div>
+        <div class="absolute bottom-8 left-8 text-5xl text-warm-pink opacity-20">❀</div>
+        <div class="absolute bottom-8 right-8 text-5xl text-warm-pink opacity-20">❀</div>
+        
+        <div class="text-center max-w-4xl mx-auto">
+            <p class="font-elegant text-xl md:text-2xl tracking-[0.3em] uppercase mb-6" style="color: var(--dusty-mauve);">
+                Con todo el cariño
+            </p>
+            
+            <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-medium mb-8 leading-tight">
+                <span class="text-gradient">¡Feliz Cumpleaños,</span>
+                <br>
+                <span class="italic" style="color: var(--deep-rose);">Mamá!</span>
+            </h1>
+            
+            <div class="flex items-center justify-center mb-10">
+                <span class="ornament">✦</span>
+                <span class="ornament" style="animation-delay: 0.3s;">❋</span>
+                <span class="ornament" style="animation-delay: 0.6s;">✦</span>
+            </div>
+            
+            <p class="font-elegant text-2xl md:text-3xl leading-relaxed max-w-2xl mx-auto" style="color: var(--charcoal);">
+                Hoy celebramos a una mujer extraordinaria, 
+                la que llena nuestros días de alegría y cariño.
+            </p>
+            
+            <div class="mt-16">
+                <a href="#mensaje" class="inline-block">
+                    <div class="w-8 h-12 border-2 rounded-full flex items-start justify-center pt-2" style="border-color: var(--dusty-mauve);">
+                        <div class="w-1.5 h-3 rounded-full animate-bounce" style="background: var(--dusty-mauve);"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Main Message Section -->
+    <section id="mensaje" class="py-24 px-6" style="background: white;">
+        <div class="max-w-4xl mx-auto fade-section">
+            <div class="text-center mb-16">
+                <span class="quote-mark">"</span>
+                <p class="font-display text-3xl md:text-4xl lg:text-5xl italic leading-relaxed -mt-12" style="color: var(--charcoal);">
+                    Una madre es alguien que puede tomar el lugar de todos los demás, 
+                    pero cuyo lugar nadie más puede tomar.
+                </p>
+                <span class="quote-mark rotate-180 inline-block">"</span>
+            </div>
+            
+            <div class="divider">
+                <div class="divider-line"></div>
+                <span class="divider-icon">❦</span>
+                <div class="divider-line"></div>
+            </div>
+            
+            <div class="prose prose-lg max-w-none text-center">
+                <p class="font-elegant text-xl md:text-2xl leading-relaxed mb-8" style="color: var(--charcoal);">
+                    Querida Mamá, en este día tan especial queremos que sepas cuánto significas para nosotros. 
+                    Eres el corazón de nuestra familia, la fuerza que nos inspira, 
+                    y el cariño que nos acompaña en cada paso.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Photo Gallery Section -->
+    <section class="py-24 px-6" style="background: linear-gradient(to bottom, white, var(--cream));">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="font-display text-4xl md:text-5xl text-center mb-4 fade-section" style="color: var(--deep-rose);">
+                Momentos Que Atesoramos
+            </h2>
+            <p class="font-elegant text-xl text-center mb-16 fade-section" style="color: var(--dusty-mauve);">
+                Cada recuerdo contigo es un tesoro invaluable
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Photo 1 -->
+                <div class="photo-frame fade-section transform hover:-rotate-1 transition-transform duration-500">
+                    <div class="photo-placeholder aspect-[4/5]">
+                        <div class="text-center p-6">
+                            <span class="text-4xl mb-4 block">📷</span>
+                            <p class="text-lg">Tu foto favorita aquí</p>
+                        </div>
+                    </div>
+                    <p class="font-elegant text-center mt-4 italic text-lg" style="color: var(--dusty-mauve);">
+                        "Tu sonrisa ilumina nuestras vidas"
+                    </p>
+                </div>
+                
+                <!-- Photo 2 -->
+                <div class="photo-frame fade-section transform hover:rotate-1 transition-transform duration-500">
+                    <div class="photo-placeholder aspect-square">
+                        <div class="text-center p-6">
+                            <span class="text-4xl mb-4 block">📷</span>
+                            <p class="text-lg">Recuerdos juntos</p>
+                        </div>
+                    </div>
+                    <p class="font-elegant text-center mt-4 italic text-lg" style="color: var(--dusty-mauve);">
+                        "Momentos que guardaremos siempre"
+                    </p>
+                </div>
+                
+                <!-- Photo 3 -->
+                <div class="photo-frame fade-section transform hover:-rotate-1 transition-transform duration-500">
+                    <div class="photo-placeholder aspect-[4/5]">
+                        <div class="text-center p-6">
+                            <span class="text-4xl mb-4 block">📷</span>
+                            <p class="text-lg">Nuestra familia</p>
+                        </div>
+                    </div>
+                    <p class="font-elegant text-center mt-4 italic text-lg" style="color: var(--dusty-mauve);">
+                        "El amor de familia es para siempre"
+                    </p>
+                </div>
+                
+                <!-- Photo 4 -->
+                <div class="photo-frame fade-section transform hover:rotate-1 transition-transform duration-500">
+                    <div class="photo-placeholder aspect-square">
+                        <div class="text-center p-6">
+                            <span class="text-4xl mb-4 block">📷</span>
+                            <p class="text-lg">Momentos especiales</p>
+                        </div>
+                    </div>
+                    <p class="font-elegant text-center mt-4 italic text-lg" style="color: var(--dusty-mauve);">
+                        "Cada momento contigo es un regalo"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Reasons We Love You Section -->
+    <section class="py-24 px-6" style="background: var(--cream);">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="font-display text-4xl md:text-5xl text-center mb-4 fade-section" style="color: var(--deep-rose);">
+                Lo Que Apreciamos de Ti
+            </h2>
+            <p class="font-elegant text-xl text-center mb-16 fade-section" style="color: var(--dusty-mauve);">
+                Hay infinitas razones, pero aquí hay algunas especiales
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Reason 1 -->
+                <div class="message-card p-8 fade-section">
+                    <div class="flex items-start gap-4">
+                        <span class="text-3xl">💝</span>
+                        <div>
+                            <h3 class="font-display text-2xl mb-3" style="color: var(--deep-rose);">Tu Cariño Constante</h3>
+                            <p class="font-elegant text-lg leading-relaxed" style="color: var(--charcoal);">
+                                Siempre nos has dado cariño sin condiciones, sin límites, sin esperar nada a cambio. 
+                                Tu apoyo es el refugio más seguro que conocemos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Reason 2 -->
+                <div class="message-card p-8 fade-section">
+                    <div class="flex items-start gap-4">
+                        <span class="text-3xl">🌟</span>
+                        <div>
+                            <h3 class="font-display text-2xl mb-3" style="color: var(--deep-rose);">Tu Fortaleza</h3>
+                            <p class="font-elegant text-lg leading-relaxed" style="color: var(--charcoal);">
+                                Has enfrentado cada desafío con valentía y gracia. 
+                                Nos has enseñado que ser fuerte también significa ser gentil.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Reason 3 -->
+                <div class="message-card p-8 fade-section">
+                    <div class="flex items-start gap-4">
+                        <span class="text-3xl">🍳</span>
+                        <div>
+                            <h3 class="font-display text-2xl mb-3" style="color: var(--deep-rose);">Tu Cocina Mágica</h3>
+                            <p class="font-elegant text-lg leading-relaxed" style="color: var(--charcoal);">
+                                Cada platillo que preparas está lleno de amor. 
+                                El sabor de tu comida es el sabor de hogar.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Reason 4 -->
+                <div class="message-card p-8 fade-section">
+                    <div class="flex items-start gap-4">
+                        <span class="text-3xl">🤝</span>
+                        <div>
+                            <h3 class="font-display text-2xl mb-3" style="color: var(--deep-rose);">Tu Ayuda Incondicional</h3>
+                            <p class="font-elegant text-lg leading-relaxed" style="color: var(--charcoal);">
+                                Siempre estás ahí cuando te necesitamos, sin importar la hora o la distancia. 
+                                Tu apoyo constante nos ha permitido alcanzar nuestras metas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Reason 5 -->
+                <div class="message-card p-8 fade-section">
+                    <div class="flex items-start gap-4">
+                        <span class="text-3xl">🌸</span>
+                        <div>
+                            <h3 class="font-display text-2xl mb-3" style="color: var(--deep-rose);">Tu Paciencia Infinita</h3>
+                            <p class="font-elegant text-lg leading-relaxed" style="color: var(--charcoal);">
+                                Nos has guiado con paciencia y sabiduría, 
+                                incluso cuando no fue fácil. Gracias por nunca rendirte.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Reason 6 -->
+                <div class="message-card p-8 fade-section">
+                    <div class="flex items-start gap-4">
+                        <span class="text-3xl">✨</span>
+                        <div>
+                            <h3 class="font-display text-2xl mb-3" style="color: var(--deep-rose);">Tu Espíritu Alegre</h3>
+                            <p class="font-elegant text-lg leading-relaxed" style="color: var(--charcoal);">
+                                Tu risa es contagiosa, tu alegría ilumina cada habitación. 
+                                Nos has enseñado a encontrar felicidad en lo simple.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Special Message Section -->
+    <section class="py-24 px-6" style="background: linear-gradient(135deg, #F8E8E0, #F0E6DF);">
+        <div class="max-w-3xl mx-auto text-center fade-section">
+            <div class="mb-8">
+                <span class="text-6xl">💐</span>
+            </div>
+            
+            <h2 class="font-display text-3xl md:text-4xl mb-8" style="color: var(--deep-rose);">
+                Gracias, Mamá
+            </h2>
+            
+            <div class="space-y-6">
+                <p class="font-elegant text-xl md:text-2xl leading-relaxed" style="color: var(--charcoal);">
+                    Gracias por las noches de desvelo cuidándonos, 
+                    por los sacrificios que hiciste por nosotros, 
+                    por cada palabra de aliento cuando dudábamos de nosotros mismos.
+                </p>
+                
+                <p class="font-elegant text-xl md:text-2xl leading-relaxed" style="color: var(--charcoal);">
+                    Gracias por ser nuestra primera maestra, nuestra consejera, 
+                    y nuestro ejemplo a seguir.
+                </p>
+                
+                <p class="font-elegant text-xl md:text-2xl leading-relaxed" style="color: var(--charcoal);">
+                    Eres la razón por la que conocemos el significado de familia. 
+                    Eres la razón por la que sabemos lo que significa tener un hogar.
+                </p>
+                
+                <p class="font-display text-2xl md:text-3xl italic mt-12" style="color: var(--deep-rose);">
+                    "Gracias por todo lo que haces y todo lo que eres para nosotros."
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Gift Section -->
+    <section class="gift-section py-24 px-6 relative">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="fade-section">
+                <span class="text-7xl mb-8 block">🎁</span>
+                
+                <h2 class="font-display text-4xl md:text-5xl mb-6" style="color: var(--deep-rose);">
+                    Y Ahora... Una Sorpresa Especial
+                </h2>
+                
+                <p class="font-elegant text-xl md:text-2xl mb-12 max-w-2xl mx-auto" style="color: var(--charcoal);">
+                    Porque mereces el mundo y más, te tenemos preparado algo muy especial...
+                </p>
+                
+                <button onclick="revealGift()" class="gift-button" id="reveal-btn">
+                    ✨ HAZ CLICK ACÁ PARA DESCUBRIR TU REGALO ✨
+                </button>
+            </div>
+            
+            <!-- Hidden Gift Container -->
+            <div class="gift-container mt-16" id="gift-container">
+                <p class="font-display text-2xl md:text-3xl mb-8" style="color: var(--soft-gold);">
+                    ¡Prepara tus maletas, Mamá!
+                </p>
+                
+                <!-- Boarding Pass -->
+                <div class="boarding-pass">
+                    <!-- Header -->
+                    <div class="boarding-pass-header">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <p class="text-xs tracking-widest opacity-80 mb-1">PASE DE ABORDAR</p>
+                                <p class="font-display text-2xl">Goldberger Airlines</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-4xl">🎂✈️</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Body -->
+                    <div class="boarding-pass-body pt-8">
+                        <!-- Passenger Info -->
+                        <div class="text-left mb-6">
+                            <p class="text-xs tracking-widest mb-1" style="color: var(--dusty-mauve);">PASAJERA</p>
+                            <p class="font-display text-2xl" style="color: var(--charcoal);">WILMA RICO DE GOLDBERGER</p>
+                        </div>
+                        
+                        <!-- Flight Details -->
+                        <div class="flex justify-between items-end mb-6">
+                            <div class="text-left">
+                                <p class="text-xs tracking-widest mb-1" style="color: var(--dusty-mauve);">DESDE</p>
+                                <p class="font-display text-4xl" style="color: #1a365d;">CBBA</p>
+                                <p class="text-sm" style="color: var(--charcoal);">Cochabamba, Bolivia</p>
+                            </div>
+                            
+                            <div class="flex-1 flex items-center justify-center px-4">
+                                <div class="flex-1 border-t-2 border-dashed" style="border-color: #cbd5e0;"></div>
+                                <span class="mx-4 text-2xl">✈️</span>
+                                <div class="flex-1 border-t-2 border-dashed" style="border-color: #cbd5e0;"></div>
+                            </div>
+                            
+                            <div class="text-right">
+                                <p class="text-xs tracking-widest mb-1" style="color: var(--dusty-mauve);">HASTA</p>
+                                <p class="font-display text-4xl" style="color: #1a365d;">VA</p>
+                                <p class="text-sm" style="color: var(--charcoal);">Virginia, USA</p>
+                            </div>
+                        </div>
+                        
+                        <div class="dashed-line"></div>
+                        
+                        <!-- Additional Details -->
+                        <div class="grid grid-cols-2 gap-4 text-center mb-6">
+                            <div>
+                                <p class="text-xs tracking-widest mb-1" style="color: var(--dusty-mauve);">FECHA</p>
+                                <p class="font-display text-lg" style="color: var(--charcoal);">POR DEFINIR</p>
+                            </div>
+                            <div>
+                                <p class="text-xs tracking-widest mb-1" style="color: var(--dusty-mauve);">TIPO DE VIAJE</p>
+                                <p class="font-display text-lg" style="color: var(--charcoal);">IDA Y VUELTA 🔄</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Birthday Flight Message -->
+                        <div class="text-center py-4 px-6 mb-4 rounded-lg" style="background: linear-gradient(135deg, #FDF8F3, #F8E8E0);">
+                            <p class="text-sm tracking-widest mb-2" style="color: var(--soft-gold);">🎈 VUELO ESPECIAL DE CUMPLEAÑOS 🎈</p>
+                            <p class="font-display text-lg" style="color: var(--deep-rose);">¡Destino: Nuevas Aventuras!</p>
+                        </div>
+                        
+                        <div class="dashed-line"></div>
+                        
+                        <!-- Special Message -->
+                        <div class="text-center py-4">
+                            <p class="font-elegant text-lg italic" style="color: var(--deep-rose);">
+                                "Un viaje especial para una persona especial. 
+                                ¡Feliz cumpleaños, que este vuelo te lleve a crear nuevos recuerdos!"
+                            </p>
+                        </div>
+                        
+                        <!-- Barcode -->
+                        <div class="barcode">
+                            <span style="height: 40px;"></span>
+                            <span style="height: 35px;"></span>
+                            <span style="height: 40px;"></span>
+                            <span style="height: 25px;"></span>
+                            <span style="height: 40px;"></span>
+                            <span style="height: 30px;"></span>
+                            <span style="height: 40px;"></span>
+                            <span style="height: 40px;"></span>
+                            <span style="height: 25px;"></span>
+                            <span style="height: 40px;"></span>
+                            <span style="height: 35px;"></span>
+                            <span style="height: 40px;"></span>
+                            <span style="height: 28px;"></span>
+                            <span style="height: 40px;"></span>
+                            <span style="height: 32px;"></span>
+                            <span style="height: 40px;"></span>
+                            <span style="height: 40px;"></span>
+                            <span style="height: 25px;"></span>
+                            <span style="height: 40px;"></span>
+                            <span style="height: 35px;"></span>
+                            <span style="height: 40px;"></span>
+                            <span style="height: 30px;"></span>
+                            <span style="height: 40px;"></span>
+                            <span style="height: 40px;"></span>
+                            <span style="height: 28px;"></span>
+                            <span style="height: 40px;"></span>
+                            <span style="height: 35px;"></span>
+                            <span style="height: 40px;"></span>
+                            <span style="height: 25px;"></span>
+                            <span style="height: 40px;"></span>
+                        </div>
+                        
+                        <p class="text-center text-xs tracking-widest" style="color: var(--dusty-mauve);">
+                            FELIZ CUMPLEAÑOS
+                        </p>
+                    </div>
+                </div>
+                
+                <p class="font-elegant text-xl mt-12 italic" style="color: var(--charcoal);">
+                    ¡Esperamos que disfrutes mucho este regalo! 🎉
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-16 px-6 text-center" style="background: var(--charcoal);">
+        <div class="max-w-2xl mx-auto">
+            <p class="font-display text-3xl mb-4" style="color: var(--warm-pink);">
+                Con todo el cariño,
+            </p>
+            <p class="font-elegant text-xl mb-8" style="color: var(--cream);">
+                Freddy, Natan & Dani, Ariel ❤️
+            </p>
+            
+            <div class="flex items-center justify-center gap-4" style="color: var(--soft-gold);">
+                <span>✦</span>
+                <span class="font-elegant text-lg">Feliz Cumpleaños 2024</span>
+                <span>✦</span>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Create floating flowers
+        function createFlowers() {
+            const container = document.getElementById('flowers-container');
+            const flowers = ['🌸', '🌺', '🌷', '💐', '🌹', '🪻', '🌼'];
+            
+            for (let i = 0; i < 15; i++) {
+                const flower = document.createElement('div');
+                flower.className = 'flower';
+                flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+                flower.style.left = Math.random() * 100 + 'vw';
+                flower.style.animationDelay = Math.random() * 12 + 's';
+                flower.style.animationDuration = (10 + Math.random() * 5) + 's';
+                container.appendChild(flower);
+            }
+        }
+        
+        // Create confetti
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#E8B4B8', '#D4AF37', '#9CAF88', '#C17B7E', '#A67F8E'];
+            
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.width = (5 + Math.random() * 10) + 'px';
+                confetti.style.height = (5 + Math.random() * 10) + 'px';
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                confetti.style.animation = `confettiFall ${3 + Math.random() * 3}s ease-out forwards`;
+                confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                container.appendChild(confetti);
+            }
+            
+            // Remove confetti after animation
+            setTimeout(() => {
+                container.innerHTML = '';
+            }, 6000);
+        }
+        
+        // Reveal gift function
+        function revealGift() {
+            const btn = document.getElementById('reveal-btn');
+            const giftContainer = document.getElementById('gift-container');
+            
+            btn.style.display = 'none';
+            giftContainer.classList.add('revealed');
+            createConfetti();
+            
+            // Scroll to gift
+            setTimeout(() => {
+                giftContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 300);
+        }
+        
+        // Intersection Observer for fade-in sections
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        // Observe all fade sections
+        document.querySelectorAll('.fade-section').forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            createFlowers();
+        });
+    </script>
+</body>
+</html>
